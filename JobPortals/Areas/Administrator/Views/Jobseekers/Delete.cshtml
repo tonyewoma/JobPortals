@@ -1,0 +1,130 @@
+﻿@model JobPortals.Areas.Administrator.Models.Jobseeker
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Cnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Cnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.J_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.J_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extra_achi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extra_achi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Skill_area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Skill_area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exp_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exp_detail)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+

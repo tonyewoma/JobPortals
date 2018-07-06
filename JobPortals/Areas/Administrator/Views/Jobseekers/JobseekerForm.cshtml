@@ -1,0 +1,110 @@
+﻿@model JobPortals.Areas.Administrator.Models.Jobseeker
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>New Job Seeker</h2>
+
+@using (Html.BeginForm("Save", "Jobseekers"))
+{
+    @Html.ValidationSummary(true, "Please fix the following error")
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.J_Name)
+            @Html.TextBoxFor(m => m.J_Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_Name)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.J_Email)
+            @Html.TextBoxFor(m => m.J_Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_Email)
+        </div>
+    </div>
+
+
+    <div class="form-group col-md-12">
+        @Html.LabelFor(m => m.J_Address)
+        @Html.TextBoxFor(m => m.J_Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.J_Address)
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.J_DOB)
+            @Html.TextBoxFor(m => m.J_DOB, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_DOB)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.J_City)
+            @Html.TextBoxFor(m => m.J_City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_City)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.J_Cnumber)
+            @Html.TextBoxFor(m => m.J_Cnumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_Cnumber)
+        </div>
+
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.J_Country)
+            @Html.TextBoxFor(m => m.J_Country, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.J_Country)
+        </div>
+    </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.J_Gender)
+                @Html.TextBoxFor(m => m.J_Gender, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.J_Gender)
+            </div>
+
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.J_State)
+                @Html.TextBoxFor(m => m.J_State, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.J_State)
+            </div>
+
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.Extra_achi)
+                @Html.TextBoxFor(m => m.Extra_achi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Extra_achi)
+            </div>
+
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.User_type)
+                @Html.TextBoxFor(m => m.User_type, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.User_type)
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Skill_area)
+                @Html.TextAreaFor(m => m.Skill_area, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Skill_area)
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Exp_detail)
+                @Html.TextAreaFor(m => m.Exp_detail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Exp_detail)
+            </div>
+        </div>
+
+
+        @Html.HiddenFor(m => m.Id)
+
+        <button type="submit" class="btn btn-primary">Save</button>
+}

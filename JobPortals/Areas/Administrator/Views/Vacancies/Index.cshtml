@@ -1,0 +1,40 @@
+﻿@model IEnumerable<JobPortals.Areas.Administrator.Models.Vacancy>
+@using JobPortals.Areas.Administrator.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("New Vacancy", "New", "Vacancies", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Postion</th>
+            <th>JobType</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vacancies in Model)
+        {
+            <tr>
+                <td>@vacancies.CompanyType.CompanyTypeName</td>
+                <td>@vacancies.Postion</td>
+                <td>@vacancies.JobType</td>
+                <td>@vacancies.Qualification</td>
+                <td>@vacancies.Experience</td>
+                <td>@vacancies.Location</td>
+                <td>@Html.Partial("_TableButtonsPartial", new SmallButtonModel { Id = vacancies.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

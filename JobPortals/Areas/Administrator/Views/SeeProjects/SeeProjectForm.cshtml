@@ -1,0 +1,56 @@
+﻿@*@model JobPortals.Areas.Administrator.Models.SeeProject*@
+@model JobPortals.Areas.Administrator.ViewModels.SeeProjectFormViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>New Project</h2>
+
+@using (Html.BeginForm("Save", "SeeProjects"))
+{
+    <div class="form-group ">
+        @Html.LabelFor(s => s.CompanyTypeId)
+        @Html.DropDownListFor(s => s.CompanyTypeId, new SelectList(Model.CompanyTypes, "Id", "CompanyTypeName"), "Select Company Types", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.CompanyTypeId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ProjectName)
+        @Html.TextBoxFor(s => s.ProjectName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.ProjectName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ProjectDescription)
+        @Html.TextBoxFor(s => s.ProjectDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.ProjectDescription)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.SkillsRequired)
+        @Html.TextBoxFor(s => s.SkillsRequired, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.SkillsRequired)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.Budget)
+        @Html.TextBoxFor(s => s.Budget, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Budget)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ProjectDeadline)
+        @Html.TextBoxFor(s => s.ProjectDeadline, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.ProjectDeadline)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ContactPerson)
+        @Html.TextBoxFor(s => s.ContactPerson, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.ContactPerson)
+    </div>
+    @Html.HiddenFor(s => s.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

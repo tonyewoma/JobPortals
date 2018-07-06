@@ -1,0 +1,39 @@
+﻿@model IEnumerable<JobPortals.Areas.Administrator.Models.CompanyReg>
+@using JobPortals.Areas.Administrator.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("New Company", "New", "CompanyRegs", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th> Contact Person</th>
+            <th>Company designation</th>
+            <th>Company Type</th>
+            <th>Contact No</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var companyRegs in Model)
+        {
+            <tr>
+                <td>@companyRegs.Com_Name</td>
+                <td>@companyRegs.Contact_person</td>
+                <td>@companyRegs.Com_designation</td>
+                <td>@companyRegs.CompanyType.CompanyTypeName</td>
+                <td>@companyRegs.Com_number</td>
+                <td>@Html.Partial("_TableButtonsPartial", new SmallButtonModel { Id = companyRegs.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

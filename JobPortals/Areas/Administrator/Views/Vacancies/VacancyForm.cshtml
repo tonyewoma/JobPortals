@@ -1,0 +1,83 @@
+﻿@model JobPortals.Areas.Administrator.ViewModels.CompanyRegFormViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>New Vacancy</h2>
+
+@using (Html.BeginForm("Save", "Vacancies"))
+{
+    @Html.ValidationSummary()
+    <div class="form-row">
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.Vacancy.CompanyName)
+            @Html.TextBoxFor(m => m.Vacancy.CompanyName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.CompanyName)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.Vacancy.AboutCompany)
+            @Html.TextBoxFor(m => m.Vacancy.AboutCompany, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.AboutCompany)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.Vacancy.CompanyTypeId)
+            @Html.DropDownListFor(m => m.Vacancy.CompanyTypeId, new SelectList(Model.CompanyTypes, "Id", "CompanyTypeName"), "Select Company Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.CompanyTypeId)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.Vacancy.Postion)
+            @Html.TextBoxFor(m => m.Vacancy.Postion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.Postion)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.Vacancy.JobType)
+            @Html.TextBoxFor(m => m.Vacancy.JobType, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.JobType)
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.Vacancy.Qualification)
+            @Html.TextBoxFor(m => m.Vacancy.Qualification, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.Qualification)
+        </div>
+
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.Vacancy.Experience)
+            @Html.TextBoxFor(m => m.Vacancy.Experience, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.Experience)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.Vacancy.Location)
+            @Html.TextAreaFor(m => m.Vacancy.Location, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.Location)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.Vacancy.Responsibility)
+            @Html.TextAreaFor(m => m.Vacancy.Responsibility, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Vacancy.Responsibility)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Vacancy.SkillsRequired)
+        @Html.TextAreaFor(m => m.Vacancy.SkillsRequired, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Vacancy.SkillsRequired)
+    </div>
+
+    @Html.HiddenFor(m => m.Vacancy.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

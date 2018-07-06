@@ -1,0 +1,102 @@
+﻿@*@model JobPortals.Areas.Administrator.Models.CompanyReg*@
+@model JobPortals.Areas.Administrator.ViewModels.CompanyTypeFormViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>New Company</h2>
+
+@using (Html.BeginForm("Save", "CompanyRegs"))
+{
+    @Html.ValidationSummary()
+
+    
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_Name)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_Name)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Contact_person)
+            @Html.TextBoxFor(m => m.CompanyReg.Contact_person, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Contact_person)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_designation)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_designation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_designation)
+        </div>
+
+        @*<div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_type)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_type, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_type)
+        </div>*@
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.CompanyTypeId)
+            @Html.DropDownListFor(m => m.CompanyReg.CompanyTypeId, new SelectList(Model.CompanyTypes, "Id", "CompanyTypeName"), "Select Company Name", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.CompanyTypeId)
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_number)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_number, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_number)
+        </div>
+
+        <div class="form-group col-md-9">
+            @Html.LabelFor(m => m.CompanyReg.Com_address)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_address)
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_city)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_city, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_city)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_country)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_country, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_country)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_email)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_email)
+        </div>
+
+        <div class="form-group col-md-3">
+            @Html.LabelFor(m => m.CompanyReg.Com_state)
+            @Html.TextBoxFor(m => m.CompanyReg.Com_state, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyReg.Com_state)
+        </div>
+    </div>
+
+    
+    <div class="form-group col-md-12">
+        @Html.LabelFor(m => m.CompanyReg.Com_detail)
+        @Html.TextBoxFor(m => m.CompanyReg.Com_detail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CompanyReg.Com_detail)
+    </div>
+    
+    @Html.HiddenFor(m => m.CompanyReg.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

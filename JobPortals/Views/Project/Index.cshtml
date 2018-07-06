@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var seeProjects in Model)
+{
+    <div class="card my-4">
+        <h5 class="card-header" style="height:30px; margin-top: -1px; ">Project</h5>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th style="width: 150px;">Company Type</th>
+                        <td>@seeProjects.CompanyType.CompanyTypeName</td>
+                    </tr>
+                    <tr>
+                        <th>Project Name</th>
+                        <td>@seeProjects.ProjectName</td>
+                    </tr>
+
+                    <tr>
+                        <th>Project Description</th>
+                        <td>@seeProjects.ProjectDescription</td>
+                    </tr>
+                    <tr>
+                        <th>Skills Required</th>
+                        <td>@seeProjects.SkillsRequired</td>
+                    </tr>
+
+                    <tr>
+                        <th>Budget</th>
+                        <td>@seeProjects.Budget</td>
+                    </tr>
+                    <tr>
+                        <th>Project Deadline</th>
+                        <td>@seeProjects.ProjectDeadline</td>
+                    </tr>
+                    <tr>
+                        <th>Contact Person</th>
+                        <td>@seeProjects.ContactPerson</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

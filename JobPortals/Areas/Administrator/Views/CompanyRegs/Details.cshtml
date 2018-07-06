@@ -1,0 +1,107 @@
+﻿@model JobPortals.Areas.Administrator.Models.CompanyReg
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_person)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_person)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyType.CompanyTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyType.CompanyTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Com_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Com_detail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.Partial("_EditButtonPartial", Model.Id)
+    @Html.Partial("_BackToListButtonPartial")
+</p>

@@ -1,0 +1,25 @@
+﻿@model JobPortals.Areas.Administrator.Models.CompanyType
+
+@{
+    ViewBag.Title = "CompanyTypeForm";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Types of Company Registration</h2>
+
+@using (Html.BeginForm("Save", "CompanyTypes"))
+{
+    @Html.ValidationSummary(true, "Please fix the following error")
+    <div class="form-group col-md-6">
+        @Html.LabelFor(c => c.CompanyTypeName)
+        @Html.TextBoxFor(c => c.CompanyTypeName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CompanyTypeName)
+    </div>
+
+    <div class="form-group col-md-6">
+        @Html.HiddenFor(m => m.Id)
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 25px">Save</button>
+    </div>
+}
+

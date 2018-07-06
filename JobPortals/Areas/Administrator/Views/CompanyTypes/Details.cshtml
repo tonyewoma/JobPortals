@@ -1,0 +1,25 @@
+﻿@model JobPortals.Areas.Administrator.Models.CompanyType
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyTypeName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyTypeName)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.Partial("_EditButtonPartial", Model.Id)
+    @Html.Partial("_BackToListButtonPartial")
+</p>
+

@@ -1,0 +1,34 @@
+﻿
+@model IEnumerable<JobPortals.Areas.Administrator.Models.SeeProject>
+@using JobPortals.Areas.Administrator.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<p>
+    @Html.ActionLink("New Project", "New", "SeeProjects", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Project Name</th>
+            <th>Budget</th>
+            <th>Project Deadline</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var seeProjects in Model)
+        {
+            <tr>
+                <td>@seeProjects.CompanyType.CompanyTypeName</td>
+                <td>@seeProjects.ProjectName</td>
+                <td>@seeProjects.Budget</td>
+                <td>@seeProjects.ProjectDeadline</td>
+                <td>@Html.Partial("_TableButtonsPartial", new SmallButtonModel { Id = seeProjects.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
